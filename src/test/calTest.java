@@ -13,13 +13,14 @@ public class calTest{
         "1, 1, 3, 1, 2024, 60",
         "1, 1, 5, 3, 2023, 122",
         "1, 1, 1, 1, 2024, 0", //same day same month
-        "1, 31, 1, 2, 2023, 1", //month boundary case
+        "1, 31, 2, 1, 2023, 1", //month boundary case
         "2, 28, 3, 1, 2024, 2", //leap year
         "2, 28, 3, 1, 2023, 1", //non-leap year
         "2, 29, 3, 1, 2024, 1", //leap year
         "7,31,8,1,2025,1", //month boundary case
         "12,31,1,1,2025,1" //year boundary case
     })
+    
     void testCal(int month1, int day1, int month2, int day2, int year, int expected) {
         assertEquals(expected, Cal.cal(month1, day1, month2, day2, year));
     }

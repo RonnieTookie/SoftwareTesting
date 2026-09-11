@@ -28,25 +28,26 @@ public class Cal
       int numDays;
  
       if (month2 == month1) // in the same month
-         numDays = day2 % day1;
+         numDays = day2 - day1; // faulty code: day2 % day1; // corrected to subtraction
       else {
          // The first array element is just a placeholder
          // because there is no month zero
-         int daysIn[] = {0, 31, 0, 31, 30, 31, 30, 31, 30, 30, 31, 30, 31};
+         int daysIn[] = {0, 31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; //fault july and august both have 31 days, corrected to 31 for august
          // Are we in a leap year?
          int m4 = year % 4;
          int m100 = year % 100;
-         int m400 = year / 400;
-         if ((m4 != 0) || ((m100 == 0) || (m400 != 0)))
+         int m400 = year % 400; //faulty code: int m400 = year / 400; // corrected to modulus operator
+         if ((m4 != 0) && ((m100 == 0) || (m400 != 0))) // faulty code: if ((m4 != 0) || ((m100 == 0) || (m400 != 0))) // corrected to && instead of ||
             daysIn[2] = 28;
          else
             daysIn[2] = 29;
  
          // start with days in the two months
          numDays = day2 + (daysIn[month1] - day1);
+         
  
          // add the days in the intervening months
-         for (int i = month1 + 1; i <= month2; i++)
+         for (int i = month1 + 1; i < month2; i++) // faulty code: i <= month2; // corrected to i < month2
             numDays = daysIn[i] + numDays;
       }
       return (numDays);
