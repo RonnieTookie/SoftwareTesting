@@ -37,7 +37,7 @@ public class Cal
          int m4 = year % 4;
          int m100 = year % 100;
          int m400 = year % 400; //faulty code: int m400 = year / 400; // corrected to modulus operator
-         if ((m4 != 0) && ((m100 == 0) || (m400 != 0))) // faulty code: if ((m4 != 0) || ((m100 == 0) || (m400 != 0))) // corrected to && instead of ||
+         if ((m4 != 0) || ((m100 == 0) && (m400 != 0))) // faulty code: if ((m4 != 0) || ((m100 == 0) || (m400 != 0))) // corrected to && instead of ||
             daysIn[2] = 28;
          else
             daysIn[2] = 29;

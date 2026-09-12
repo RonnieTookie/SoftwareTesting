@@ -18,6 +18,7 @@ public class calTest{
         "2, 28, 3, 1, 2023, 1", //non-leap year
         "2, 29, 3, 1, 2024, 1", //leap year
         "7,31,8,1,2025,1", //month boundary case
+        "8,31,9,1,2025,1", //month boundary case
         "12,31,1,1,2025,1" //year boundary case
     })
     
